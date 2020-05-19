@@ -35,3 +35,14 @@ class Character(models.Model):
     surname = models.CharField(max_length=36)
     book = models.ForeignKey(Book, on_delete=models.CASCADE,
                              related_name='characters') #referencja na glowna tabele
+
+
+class Author(models.Model):
+    """
+    Many to many
+    N- book
+    N - authonr
+    """
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    books = models.ManyToManyField(Book, related_name='authors') #referencja na glowna tabele
